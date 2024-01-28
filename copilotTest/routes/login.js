@@ -9,7 +9,7 @@ router.post("/", function (req, res, next) {
   if (username.length > 0 && password.length > 0) {
     if (password === "pass") {
       //res.send("to nextpage");
-      res.render("profile", {title: 'profile'});
+      res.render("profile", {title: 'profilePage'});
     } else {
       res.send("Invalid username or password");
     }
