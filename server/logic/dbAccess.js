@@ -3,8 +3,8 @@ const { User, Comment, Content, Profile } = require("../models/index");
 async function getUsers() {
   try {
     const users = await User.findAll();
-    console.log(users);
-    //return users;
+    //console.log(users);
+    return users;
   } catch (error) {
     console.error("Error fetching users: ", error);
     throw error;

@@ -6,6 +6,8 @@ var bodyParser = require("body-parser");
 var logger = require("morgan");
 var loginRouter = require("./routes/login");
 var profileRouter = require("./routes/profile");
+var userDataRouter = require("./routes/users");
+const cors = require("cors");
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -20,9 +22,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cors());
 
 app.use("/", loginRouter); 
 app.use("/profile", profileRouter);
+app.use("/users", userDataRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -40,6 +45,6 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(5000, function () {
+  console.log('Server is running on port 5000');
 });
