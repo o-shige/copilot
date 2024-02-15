@@ -96,7 +96,7 @@ async function createUser(username, password) {
 // getContents();
 
 // ID1に紐づく情報を提示
-console.log("testですよ");
-getUserWithDetails(1);
+// console.log("testですよ");
+// getUserWithDetails(1);
 
 module.exports = { createUser, getUsers, getUser };
