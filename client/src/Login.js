@@ -1,37 +1,47 @@
 import React, { useState } from "react";
 import "./Login.css";
+import axios from "axios";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    // console.log(
-    //   `this is the username: ${username} and this is the password: ${password}`
-    // );
+    // axios.get('http://localhost:5000/users');
 
+    axios.post('http://localhost:5000/users', { username, password })
+    .then(response => {
+      if (response.data.success) {
+        console.log('認証成功:', response.data);
+      } else {
+        console.log('認証失敗:', response.data);
+      }
+    })
+    .catch(error => console.error('Error:', error));
+    
+    
     // ログインが成功したらユーザーを次のページにリダイレクト;
-    if (username.length > 0 && password.length > 0) {
-      let user;
-      // 毎回全ユーザーを取得するのは非効率
-      fetch("http://localhost:5000/users")
-        .then((res) => res.json())
-        .then((data) => {
-          user = data.find((user) => user.username === username);
-          if (username.length > 0 && password.length > 0) {
-            if (password === user.password) {
-              console.log("to nextpage");
-            } else {
-              console.log("Invalid username or password");
-            }
-          } else {
-            console.log("Invalid username or password");
-          }
-        })
-        .catch((error) => console.error("Error:", error));
-    } else {
-      console.log("Invalid username or password");
-    }
+    // if (username.length > 0 && password.length > 0) {
+    //   let user;
+    //   // 毎回全ユーザーを取得するのは非効率
+    //   fetch("http://localhost:5000/users")
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       user = data.find((user) => user.username === username);
+    //       if (username.length > 0 && password.length > 0) {
+    //         if (password === user.password) {
+    //           console.log("to nextpage");
+    //         } else {
+    //           console.log("Invalid username or password");
+    //         }
+    //       } else {
+    //         console.log("Invalid username or password");
+    //       }
+    //     })
+    //     .catch((error) => console.error("Error:", error));
+    // } else {
+    //   console.log("Invalid username or password");
+    // }
   };
 
   return (
