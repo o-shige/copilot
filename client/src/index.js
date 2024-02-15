@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 // import App from "./App";
 // import Main from "./Main";
+// import Sample from "./Sample";
 import reportWebVitals from "./reportWebVitals";
 import Login from "./Login";
 
@@ -12,6 +13,7 @@ root.render(
     {/* <App /> */}
     {/* <Main /> */}
     <Login />
+    {/* <Sample /> */}
   </React.StrictMode>
 );
 
