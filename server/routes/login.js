@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 const User = require("../models/index");
-const { createUser, getUsers, getUser } = require("../logic/DBdebug");
+const { createUser, getUsers, getUser } = require("../logic/dbAccess");
 
 router.get("/", function (req, res) {
   //res.render("index", {title: 'home', message: 'hello'});

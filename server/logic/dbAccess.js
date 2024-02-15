@@ -3,8 +3,8 @@ const { User, Comment, Content, Profile } = require("../models/index");
 async function getUsers() {
   try {
     const users = await User.findAll();
-    console.log(users);
-    //return users;
+    //console.log(users);
+    return users;
   } catch (error) {
     console.error("Error fetching users: ", error);
     throw error;
@@ -96,7 +96,7 @@ async function createUser(username, password) {
 // getContents();
 
 // ID1に紐づく情報を提示
-console.log("testですよ");
-getUserWithDetails(1);
+// console.log("testですよ");
+// getUserWithDetails(1);
 
 module.exports = { createUser, getUsers, getUser };
